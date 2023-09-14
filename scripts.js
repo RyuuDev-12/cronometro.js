@@ -75,6 +75,7 @@ resetBtn.addEventListener('click', ()=>{
 
 pauseBtn.addEventListener('click', ()=>{
     clearInterval(myInterval)
+    pauseBtn.style.display = 'none'
     resumeBtn.style.display = 'inline'
 })
 
@@ -82,6 +83,7 @@ pauseBtn.addEventListener('click', ()=>{
 
 resumeBtn.addEventListener('click', ()=>{
     myInterval = setInterval(start, 10)
+    pauseBtn.style.display = 'inline'
     resumeBtn.style.display = 'none'
 })
 
@@ -91,10 +93,13 @@ let accumulator = 1
 
 lapBtn.addEventListener('click', ()=>{
     
-    laps.innerHTML += `<li>Volta ${accumulator} -    
-    ${formatter.format(minutes)}:
-    ${formatter.format(seconds)}:
-    ${miliFormat.format(miliSeconds)}</li>`
+    laps.innerHTML += `
+    <li>Volta 
+        ${accumulator} -
+        ${formatter.format(minutes)}:
+        ${formatter.format(seconds)}:
+        ${miliFormat.format(miliSeconds)}
+    </li>`
     
     accumulator ++
 })
